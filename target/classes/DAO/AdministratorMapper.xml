@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="DAO.AdministratorMapper">
+
+    <!--新建一个管理员-->
+    <insert id="save" parameterType="Administrator">
+      insert into DB_xianyu.Administrator(Userid,Account,password)
+      values (null, #{Account}, #{password})
+   </insert>
+
+    <!--//根据ID删除一个管理员-->
+    <delete id="delete" parameterType="int">
+      delete from DB_xianyu.Administrator where Userid=#{Userid}
+   </delete>
+
+    <!--通过账号查找管理员-->
+    <select id="findByAccount" resultType="Administrator">
+      select * from DB_xianyu.Administrator
+      where Account = #{Account}
+   </select>
+
+    <!--查找所有管理员-->
+    <select id="findAll" resultType="Administrator">
+      SELECT * from DB_xianyu.Administrator
+   </select>
+
+</mapper>
